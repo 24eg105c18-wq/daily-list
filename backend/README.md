@@ -8,6 +8,13 @@ A simple REST API for the Daylist To-Do List frontend, built with Java 17+, Spri
 3. Health check: `http://localhost:8080/api/health`
 4. Tasks endpoint: `http://localhost:8080/api/tasks`
 
+## Deploy on Render
+1. Create a Web Service from the `24eg105c18-wq/daily-list` GitHub repository.
+2. Set the root directory to `backend` and the runtime to Docker.
+3. Set the health check path to `/api/health` and choose a free instance if available.
+
+The default H2 database is stored in the container filesystem. On hosts with ephemeral filesystems, task data can be lost when the service restarts or redeploys. Use a managed database before storing important data.
+
 ## API endpoints
 - `GET /api/tasks` — list all tasks
 - `GET /api/tasks?completed=false` — filter by completion
