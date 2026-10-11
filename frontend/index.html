@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fdfcfb" />
+  <title>Daylist — Make space for what matters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="light">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" aria-label="Daylist home"><span class="brand-mark">✓</span><span>daylist</span></a>
+    <button class="add-task side-add" id="sideAdd"><span>＋</span> Add task <kbd>N</kbd></button>
+    <nav class="nav-main" aria-label="Main navigation">
+      <button class="nav-item active" data-view="today"><span class="nav-icon sun">☼</span><span>Today</span><span class="nav-count" id="todayCount">0</span></button>
+      <button class="nav-item" data-view="upcoming"><span class="nav-icon">▦</span><span>Upcoming</span></button>
+      <button class="nav-item" data-view="all"><span class="nav-icon">☷</span><span>All tasks</span><span class="nav-count" id="allCount">0</span></button>
+      <button class="nav-item" data-view="completed"><span class="nav-icon">✓</span><span>Completed</span></button>
+    </nav>
+    <div class="sidebar-section"><div class="section-heading"><span>YOUR PROJECTS</span><button id="addProject" title="Add project">＋</button></div>
+      <div id="projectList" class="project-list">
+        <button class="project-item" data-project="Personal"><i class="project-dot coral"></i>Personal</button>
+        <button class="project-item" data-project="Work"><i class="project-dot blue"></i>Work</button>
+        <button class="project-item" data-project="Study"><i class="project-dot gold"></i>Study</button>
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="tip-card"><span class="tip-spark">✳</span><p><strong>Small steps add up.</strong><br><span>Focus on what matters today.</span></p></div>
+      <button class="nav-item settings-button" id="themeToggle"><span class="nav-icon" id="themeIcon">☾</span><span id="themeLabel">Dark theme</span></button>
+      <div class="profile"><div class="avatar">Y</div><div class="profile-copy"><strong>Your workspace</strong><span>Personal plan</span></div><span class="more">•••</span></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar"><div class="breadcrumbs"><span>My workspace</span><span class="crumb-slash">/</span><strong id="currentCrumb">Today</strong></div><div class="top-actions"><button class="icon-button" id="searchButton" title="Search tasks">⌕</button><button class="icon-button help-button" title="Help">?</button><div class="avatar top-avatar">Y</div></div></header>
+    <section class="content-wrap">
+      <div class="page-heading"><div><div class="eyebrow" id="dateLabel">YOUR DAY, AT A GLANCE</div><h1 id="pageTitle">Today <span class="heading-spark">✳</span></h1><p id="pageSubtitle">A little progress each day adds up.</p></div><button class="view-button" id="sortButton">↕ <span>Sort</span></button></div>
+      <div class="summary-strip"><div class="summary-item"><span class="summary-icon coral-bg">◷</span><div><strong id="pendingSummary">0</strong><span>To do</span></div></div><div class="summary-item"><span class="summary-icon green-bg">✓</span><div><strong id="doneSummary">0</strong><span>Completed</span></div></div><div class="progress-box"><div class="progress-copy"><span>Daily progress</span><strong id="progressText">0%</strong></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div></div>
+      <div class="task-toolbar"><div class="task-tabs"><button class="task-tab selected" data-filter="all">All</button><button class="task-tab" data-filter="pending">To do</button><button class="task-tab" data-filter="completed">Completed</button></div><button class="toolbar-filter" id="filterButton">☷ <span>Filter</span><span class="filter-chevron">⌄</span></button></div>
+      <div id="searchRow" class="search-row hidden"><span>⌕</span><input id="searchInput" placeholder="Search your tasks..." /><button id="closeSearch">×</button></div>
+      <div id="filterMenu" class="filter-menu hidden"><button data-priority="all">All priorities</button><button data-priority="1">🔴 Priority 1</button><button data-priority="2">🟠 Priority 2</button><button data-priority="3">🔵 Priority 3</button></div>
+      <section class="task-section"><div class="task-section-heading"><h2 id="listHeading">Today <span id="visibleCount">0</span></h2><button class="dots-button" id="listMenu" title="List options">•••</button></div><div id="taskList" class="task-list"></div><div id="emptyState" class="empty-state hidden"><div class="empty-illustration"><span class="empty-circle">✓</span><span class="empty-star">✦</span><span class="empty-line"></span></div><h3>All clear. Nice work!</h3><p>Enjoy the breathing room, or add a task to keep going.</p><button class="add-task empty-add" id="emptyAdd">＋ Add a task</button></div><button class="add-inline" id="inlineAdd"><span>＋</span> Add task</button><div id="taskForm" class="task-form hidden"><div class="form-main"><input id="taskTitle" maxlength="120" placeholder="What needs to get done?" autocomplete="off"/><textarea id="taskDescription" rows="2" placeholder="Description (optional)"></textarea></div><div class="form-options"><label>Project<select id="taskProject"><option>Personal</option><option>Work</option><option>Study</option></select></label><label>Due date<input id="taskDate" type="date"/></label><label>Priority<select id="taskPriority"><option value="4">No priority</option><option value="1">🔴 High</option><option value="2">🟠 Medium</option><option value="3">🔵 Low</option></select></label></div><div class="form-footer"><span class="form-hint">Press Enter to save</span><div><button class="cancel-button" id="cancelTask">Cancel</button><button class="save-button" id="saveTask">Add task <span>↵</span></button></div></div></div></section>
+      <footer class="footer-note"><span>✦</span> Make time for what matters.</footer>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
