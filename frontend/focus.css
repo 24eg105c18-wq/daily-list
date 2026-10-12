@@ -1,0 +1,21 @@
+.focus-launch{position:fixed;right:24px;bottom:24px;z-index:20;display:flex;align-items:center;gap:8px;padding:11px 16px;border:0;border-radius:999px;background:#235d50;color:#fff;font:600 13px 'DM Sans',sans-serif;box-shadow:0 8px 24px #183d3433;cursor:pointer;transition:transform .18s ease,background .18s ease}
+.focus-launch:hover{background:#19493e;transform:translateY(-2px)}
+.focus-launch span{font-size:17px}
+.focus-dialog{width:min(420px,calc(100vw - 32px));padding:25px;border:1px solid #e6e4dd;border-radius:12px;background:#fffdfa;color:#202620;box-shadow:0 24px 80px #18221d38}
+.focus-dialog::backdrop{background:#16231fc2;backdrop-filter:blur(3px)}
+.focus-header{display:flex;align-items:flex-start;justify-content:space-between}
+.focus-eyebrow{color:#69746c;font:700 10px 'DM Sans',sans-serif;letter-spacing:1px}
+.focus-header h2{margin:5px 0 0;font:700 21px Manrope,sans-serif}
+.focus-close,.focus-reset{display:grid;place-items:center;width:36px;height:36px;border:1px solid #e2e5df;border-radius:50%;background:transparent;color:#455249;font-size:21px;cursor:pointer}
+.focus-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:23px 0 8px;padding:4px;border-radius:8px;background:#f2f3ee}
+.focus-modes button{min-height:34px;border:0;border-radius:6px;background:transparent;color:#626c64;font:600 12px 'DM Sans',sans-serif;cursor:pointer}
+.focus-modes button.is-selected{background:#fff;color:#235d50;box-shadow:0 1px 4px #18221d16}
+.focus-clock{padding:13px 0 0;text-align:center;color:#263a31;font:600 76px Manrope,sans-serif;font-variant-numeric:tabular-nums;line-height:1.2}
+.focus-status{min-height:20px;margin:0;text-align:center;color:#707970;font:400 13px 'DM Sans',sans-serif}
+.focus-actions{display:flex;align-items:center;justify-content:center;gap:12px;margin:23px 0}
+.focus-start{min-width:160px;min-height:44px;padding:0 22px;border:0;border-radius:7px;background:#235d50;color:#fff;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+.focus-start:hover{background:#19493e}
+.focus-sessions{display:flex;justify-content:center;align-items:center;gap:8px;padding-top:15px;border-top:1px solid #ecebe5;color:#687269;font:400 12px 'DM Sans',sans-serif}
+.focus-session-mark{color:#d98b42}
+.focus-sessions strong{color:#263a31}
+@media(max-width:650px){.focus-launch{right:16px;bottom:16px}.focus-dialog{padding:21px}.focus-clock{font-size:68px}}

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="focus.css" />
 </head>
 <body data-theme="light">
   <aside class="sidebar" id="sidebar">
@@ -46,8 +47,28 @@
       <footer class="footer-note"><span>✦</span> Make time for what matters.</footer>
     </section>
   </main>
+  <button class="focus-launch" id="focusLaunch" type="button" aria-haspopup="dialog"><span aria-hidden="true">◷</span> Focus</button>
+  <dialog class="focus-dialog" id="focusDialog" aria-labelledby="focusTitle">
+    <div class="focus-header">
+      <div><div class="focus-eyebrow">A LITTLE SPACE TO THINK</div><h2 id="focusTitle">Focus session</h2></div>
+      <button class="focus-close" id="focusClose" type="button" aria-label="Close focus timer">×</button>
+    </div>
+    <div class="focus-modes" role="group" aria-label="Timer mode">
+      <button type="button" class="is-selected" data-focus-mode="focus" aria-pressed="true">Focus</button>
+      <button type="button" data-focus-mode="short" aria-pressed="false">Short break</button>
+      <button type="button" data-focus-mode="long" aria-pressed="false">Long break</button>
+    </div>
+    <div class="focus-clock" id="focusClock" aria-live="off">25:00</div>
+    <p class="focus-status" id="focusStatus" aria-live="polite">Ready when you are.</p>
+    <div class="focus-actions">
+      <button class="focus-reset" id="focusReset" type="button" title="Reset timer" aria-label="Reset timer">↺</button>
+      <button class="focus-start" id="focusStart" type="button">Start focus</button>
+    </div>
+    <div class="focus-sessions"><span class="focus-session-mark">✦</span><span><strong id="focusSessions">0</strong> focus sessions completed</span></div>
+  </dialog>
   <div id="toast" class="toast" role="status"></div>
   <script>window.DAYLIST_API_BASE = 'https://daily-list-api.onrender.com';</script>
   <script src="app.js"></script>
+  <script src="focus.js"></script>
 </body>
 </html>
